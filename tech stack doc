@@ -1,0 +1,66 @@
+# Tech Stack Document
+**Project Name:** "A Message Someone Left For You"
+**Design Focus:** Premium aesthetic animations, zero-lag audio syncing, and high performance on mobile.
+
+## Core Philosophy
+Because this experience is short (30-60 seconds) and relies entirely on precise timing, seamless transitions, and preloaded assets, a Single Page Application (SPA) is strictly required. Server-side rendering (SSR) is unnecessary here; we need raw client-side performance.
+
+---
+
+## 1. Frontend Framework & Tooling
+
+* **Framework:** **React.js**
+    * *Why:* React’s component-based architecture is perfect for managing the distinct "Phases" of the experience (Phase 1: Envelope -> Phase 2: Jar -> Phase 3: Twist). You can easily mount and unmount these stages without page reloads.
+* **Build Tool:** **Vite**
+    * *Why:* Vite is significantly faster than Create React App. It provides hot Module Replacement (HMR) which is crucial when you are fine-tuning millisecond-level animation timings and CSS tweaks.
+
+## 2. Animation & Motion Engines (The Core)
+
+To achieve the "beautiful aesthetic" and the chaotic meme transitions, we need a mix of 2D UI animation and potentially 3D rendering.
+
+* **UI & DOM Animation:** **Framer Motion**
+    * *Why:* The absolute best library for React animations. It uses physics-based spring animations rather than rigid duration curves. This will make the envelope opening, the letter unfolding, and the message bubbles popping up feel incredibly organic, fluid, and "cute."
+* **Advanced Visuals (The Jar of Stars):** **React Three Fiber (R3F) / Three.js**
+    * *Why:* While you could do the jar in 2D CSS, building a real-time 3D visualizer for the "Jar of Stars" elevates the aesthetic to a premium level. Using Three.js allows the stars to actually float within a 3D glass volume, emit particle glows, and react to cursor/touch movements before being clicked. 
+* **Meme Animations:** **Vanilla CSS Keyframes**
+    * *Why:* For the abrupt "Screen Shake" and harsh text pop-ins during the meme twist, standard CSS keyframes (`transform: translate`) offer the most brutal, unpolished, and instant execution, contrasting perfectly with Framer Motion's smoothness.
+
+## 3. Audio Management
+
+* **Library:** **Howler.js**
+    * *Why:* Relying on the native HTML5 `<audio>` tag is risky for precise timing across different mobile browsers. Howler.js guarantees that your audio sprites (like the exact millisecond the record scratch hits and the Vine boom triggers) are preloaded, cached, and fired with zero latency. 
+
+## 4. Styling & UI
+
+* **Styling Solution:** **Tailwind CSS** combined with **CSS Modules**
+    * *Why:* Tailwind is excellent for rapidly positioning the absolute elements (like the centered envelope and the overlapping meme text) and handling mobile responsiveness. CSS Modules can be used alongside it for the highly specific custom keyframes needed for the meme twist.
+* **Icons & Sparkles:** **Lucide React** or custom SVGs.
+    * *Why:* Lightweight and easily stylable with Tailwind for the wholesome phase.
+
+## 5. Hosting & Deployment
+
+* **Platform:** **Vercel** or **Netlify**
+    * *Why:* Both offer frictionless, continuous deployment for Vite/React apps. They provide excellent global CDNs out of the box, ensuring that the heavy assets (audio files and 3D textures) load instantly for users anywhere in the world, which is vital for a viral link.
+
+## 6. Recommended Folder Structure
+
+```text
+/src
+  /assets
+    /audio         # Preloaded mp3/ogg files (piano, vine-boom)
+    /images        # Envelope SVGs, Jar textures
+    /fonts         # Dancing Script, Impact
+  /components
+    /Wholesome
+      Envelope.jsx
+      Letter.jsx
+      StarJar.jsx  # Contains the Three.js canvas
+    /Meme
+      RageBait.jsx
+      ChaosUI.jsx
+    /Shared
+      AudioController.jsx # Howler.js wrapper
+  /store
+    appState.js    # Context or Zustand for tracking the current phase
+  App.jsx
+  main.jsx

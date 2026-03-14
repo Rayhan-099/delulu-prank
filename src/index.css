@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-pastel-pink: #FFD1DC;
+  --color-bg-lavender: #E6E6FA;
+  --color-text-warm-white: #FFF5EE;
+  --color-accent-soft-blue: #AEC6CF;
+  --color-envelope-red: #D9534F;
+  --color-bg-void-black: #0D0D0D;
+  --color-text-meme-white: #FFFFFF;
+  --color-accent-error-red: #FF0000;
+  
+  --font-wholesome: 'Caveat', 'Dancing Script', cursive;
+  --font-meme: 'Impact', 'Oswald', 'Arial Black', sans-serif;
+}
+
+@layer utilities {
+  .shake-violent {
+    animation: violently-shake 0.1s linear infinite;
+  }
+}
+
+:root {
+  --bg-pastel-pink: #FFD1DC;
+  --bg-lavender: #E6E6FA;
+  --text-warm-white: #FFF5EE;
+  --accent-soft-blue: #AEC6CF;
+  --envelope-red: #D9534F;
+  --bg-void-black: #0D0D0D;
+  --text-meme-white: #FFFFFF;
+  --accent-error-red: #FF0000;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100dvh;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--bg-pastel-pink);
+  font-family: 'Caveat', 'Dancing Script', cursive;
+  transition: background-color 2s ease-in-out;
+}
+
+/* Base Animations defined in the Design Doc */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes star-release {
+  0% { transform: scale(1) translateY(0); }
+  100% { transform: scale(1.2) translateY(-100px); }
+}
+
+@keyframes fade-in-slow {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes violently-shake {
+  0% { transform: translate(2px, 1px) rotate(0deg); }
+  50% { transform: translate(-1px, -2px) rotate(-1deg); }
+  100% { transform: translate(2px, 1px) rotate(0deg); }
+}
+
+@keyframes pop-in-harsh {
+  0% { transform: scale(0); display: block; }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}

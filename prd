@@ -1,0 +1,140 @@
+Product Requirements Document (PRD)
+Project Name: "A Message Someone Left For You" (Internal Codename: Project Delulu)
+Document Version: 1.0
+Target Platforms: Web Browser (Mobile-First Optimization, Desktop Compatible)
+Expected Session Length: 30–60 seconds
+
+1. Product Overview
+1.1 Vision
+To create a short, viral, interactive web experience that bait-and-switches the user. It begins as an intimate, wholesome, and romantic interactive message, building emotional anticipation, before abruptly shattering the illusion with a loud, chaotic, meme-style reality check.
+
+1.2 Core Objectives
+
+High Completion Rate: Keep interactions simple and engaging to ensure users reach the punchline.
+
+Viral Loop Generation: Elicit a strong enough reaction (laughter/surprise) that the user immediately wants to trick their friends using the built-in share mechanics.
+
+2. User Flow & Screen Requirements
+Phase 1: The Hook (Screens 1 & 2)
+State 1: The Landing Page
+
+UI Elements: Soft pastel pink background, floating CSS sparkles, centered illustrated wax-sealed envelope. Text: "Someone who cares about you left a message." Subtext: "Open the envelope to read it."
+
+Interaction: User clicks/taps the envelope. (Crucial: This initial click serves as the DOM interaction required by modern browsers to allow autoplaying audio for the rest of the experience).
+
+Audio/Animation Trigger: Soft piano music begins. Paper rustling sound plays. Envelope opening animation triggers.
+
+State 2: The Letter Unfolding
+
+UI Elements: A digital letter that unfolds downward in 4 distinct sections. Uses an elegant, handwritten cursive font.
+
+Interaction: User clicks to unfold each section.
+
+Progression:
+
+Fold 1: "You have a way of making people smile." (Trigger: Soft sparkle animation).
+
+Fold 2: "Your energy makes the world feel lighter." (Trigger: Music stems increase/become more emotional).
+
+Fold 3: "Someone really appreciates having you in their life." (Trigger: Floating CSS hearts).
+
+Fold 4: "And they wanted you to know something important..." * Exit: A "Continue" button fades in. Clicking initiates Phase 2.
+
+Phase 2: The Build-Up (Screens 3 & 4)
+State 3: The Jar of Stars
+
+Transition: Letter fades out, background cross-fades from pastel pink to a dark, calming night sky.
+
+UI Elements: A glass jar filled with 6 glowing stars. Text: "Each star contains something someone wanted to tell you. Click the jar to open them."
+
+Audio: Piano fades into soft, ambient night-time music/chords.
+
+State 4: Star Extraction
+
+Interaction: User clicks the jar 6 times.
+
+Animation/Audio: Each click plays a delicate chime. A star floats upward and expands into a text bubble.
+
+Sequence:
+
+"You matter more than you think."
+
+"You make someone's day brighter."
+
+"Your presence is appreciated."
+
+"You're stronger than you realize."
+
+"Someone notices the little things you do."
+
+"And they wanted you to know..."
+
+Exit: A "Reveal who it is" button appears.
+
+Phase 3: The Fake-Out & The Drop (Screens 5 & 6)
+State 5: The Fake Suspense (Loading)
+
+UI Elements: Screen darkens. A faux terminal/loading bar appears.
+
+Text sequence: "Analyzing..." -> "Scanning messages..." -> "Checking memories..."
+
+Timing: Lasts exactly 3-4 seconds to build maximum anticipation.
+
+State 6: The Ragebait Twist (The Drop)
+
+Audio Trigger: CRITICAL MOMENT. Ambient music abruptly cuts off with a loud record scratch.
+
+Visual Trigger: Screen shakes violently (CSS keyframe animation). Background instantly flips to a harsh, contrasting color or dark grey.
+
+UI Sequence (Cascading with sound effects):
+
+Vine Boom Sound: Bold meme font appears: "BRO STOP DAYDREAMING 💀"
+
+Discord Notification Sound: Text appears: "YOU CLICKED A RANDOM WEBSITE"
+
+Loud "FAHHH" Sound/Error sound: Text appears: "NOBODY CONFESSED ANYTHING"
+
+Phase 4: The Aftermath (Screens 7 & 8)
+State 7: The Reality Check
+
+UI Elements: Playful, chaotic UI.
+
+Text: "THIS IS WHY YOU'RE DELULU" followed by a cascading list: "GO DRINK WATER", "FINISH YOUR WORK", "AND TOUCH GRASS".
+
+State 8: The Viral Loop (Call to Action)
+
+UI Elements: Two buttons appear.
+
+Primary Action: "Send this to someone who daydreams too much" (Triggers native Web Share API on mobile, or copies URL to clipboard on desktop).
+
+Secondary Action: "Try again (maybe someone will confess this time)" (Refreshes the state back to Screen 1).
+
+3. Asset Requirements
+3.1 Audio (MP3/OGG)
+
+Wholesome: Soft piano track, ambient night track, paper rustle, unfolding paper flap (x4), soft UI chime.
+
+Meme: Record scratch, Vine boom, Discord ping, Windows error "bonk", generic "FAHHH" sound.
+
+3.2 Visuals (SVG/WebP)
+
+Wax-sealed envelope (closed and open states).
+
+Folded letter segments.
+
+Glass jar (transparent PNG/SVG).
+
+Glowing stars.
+
+3.3 Typography
+
+Wholesome Phase: A high-quality Google Font cursive (e.g., Dancing Script, Caveat, or Great Vibes).
+
+Meme Phase: Impact, Arial Black, or standard system bold fonts (all caps).
+
+4. Technical & Non-Functional Requirements
+Mobile-First: 80%+ of users will likely open this via a text or DM link. The UI must be perfectly centered and responsive on vertical viewports.
+
+Audio Policy Handling: Browsers block autoplaying audio. The "Click to open envelope" interaction acts as the mandatory user gesture to unlock the Web Audio API context for the rest of the flow.
+
+Performance: All assets (especially audio) must be preloaded in the background during Screen 1 so the "Twist" happens instantly with zero buffering delay.
