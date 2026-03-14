@@ -54,3 +54,30 @@ export const SparkleStarsSVG = ({ className }) => (
         <path fill="#FFD700" d="M25 65 Q25 75 15 75 Q25 75 25 85 Q25 75 35 75 Q25 75 25 65 Z" />
     </svg>
 );
+
+export const CloudSVG = ({ className }) => (
+    <svg viewBox="0 0 100 100" className={className} xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 65 Q30 80 50 80 Q70 80 70 65 Q85 65 85 50 Q85 30 65 30 Q60 15 45 20 Q30 10 20 30 Q5 35 15 55 Q5 65 20 65 Z" fill="#F0F8FF" stroke="#B0E0E6" strokeWidth="2" />
+        <circle cx="35" cy="45" r="3" fill="#2F4F4F" />
+        <circle cx="55" cy="45" r="3" fill="#2F4F4F" />
+        <path d="M40 55 Q45 60 50 55" fill="none" stroke="#2F4F4F" strokeWidth="2" strokeLinecap="round" />
+        <ellipse cx="30" cy="50" rx="3" ry="2" fill="#FFC0CB" opacity="0.8" />
+        <ellipse cx="60" cy="50" rx="3" ry="2" fill="#FFC0CB" opacity="0.8" />
+    </svg>
+);
+
+export const FlowerSVG = ({ className }) => (
+    <svg viewBox="0 0 100 100" className={className} xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(50, 50)">
+            <circle cx="0" cy="-20" r="15" fill="#FFB6C1" />
+            <circle cx="20" cy="-6" r="15" fill="#FFB6C1" />
+            <circle cx="12" cy="16" r="15" fill="#FFB6C1" />
+            <circle cx="-12" cy="16" r="15" fill="#FFB6C1" />
+            <circle cx="-20" cy="-6" r="15" fill="#FFB6C1" />
+            <circle cx="0" cy="0" r="12" fill="#FFD700" />
+            <circle cx="-5" cy="-2" r="2" fill="#8B4513" />
+            <circle cx="5" cy="-2" r="2" fill="#8B4513" />
+            <path d="M-2 5 Q0 8 2 5" fill="none" stroke="#8B4513" strokeWidth="1.5" strokeLinecap="round" />
+        </g>
+    </svg>
+);

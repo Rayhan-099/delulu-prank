@@ -2,7 +2,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useStore } from '../../store/appState';
 import { playSound } from '../Shared/AudioController';
-import { BowSVG, SparkleStarsSVG, StrawberrySVG, WaxSealSVG } from '../Shared/Icons';
+import { BowSVG, SparkleStarsSVG, StrawberrySVG, WaxSealSVG, CloudSVG, FlowerSVG } from '../Shared/Icons';
 
 export default function Envelope() {
     const setPhase = useStore((state) => state.setPhase);
@@ -18,23 +18,37 @@ export default function Envelope() {
         <div className="flex flex-col items-center justify-center h-full w-full relative">
             {/* Decorative Transparent SVGs */}
             <motion.div
-                className="absolute top-[15%] left-[10%] w-24 h-24 rotate-[-15deg] pointer-events-none"
+                className="absolute top-[10%] left-[5%] w-24 h-24 rotate-[-15deg] pointer-events-none z-10"
                 animate={{ y: [0, -10, 0], rotate: [-15, -10, -15] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             >
                 <BowSVG className="w-full h-full drop-shadow-lg opacity-90" />
             </motion.div>
             <motion.div
-                className="absolute bottom-[20%] left-[15%] w-24 h-24 rotate-[10deg] pointer-events-none"
+                className="absolute top-[12%] right-[10%] w-24 h-24 rotate-[15deg] pointer-events-none z-10"
+                animate={{ y: [0, 10, 0], rotate: [15, 20, 15] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            >
+                <CloudSVG className="w-full h-full drop-shadow-lg opacity-90" />
+            </motion.div>
+            <motion.div
+                className="absolute bottom-[20%] left-[10%] w-24 h-24 rotate-[10deg] pointer-events-none z-10"
                 animate={{ y: [0, 8, 0], scale: [1, 1.1, 1] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             >
                 <SparkleStarsSVG className="w-full h-full drop-shadow-lg opacity-90" />
             </motion.div>
             <motion.div
-                className="absolute top-[25%] right-[15%] w-24 h-24 rotate-[15deg] pointer-events-none"
-                animate={{ y: [0, -12, 0], rotate: [15, 20, 15] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                className="absolute bottom-[25%] right-[10%] w-24 h-24 rotate-[25deg] pointer-events-none z-10"
+                animate={{ y: [0, -6, 0], rotate: [25, 30, 25] }}
+                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+            >
+                <FlowerSVG className="w-full h-full drop-shadow-lg opacity-90" />
+            </motion.div>
+            <motion.div
+                className="absolute top-[40%] right-[5%] w-20 h-20 rotate-[-10deg] pointer-events-none z-10"
+                animate={{ y: [0, -12, 0], rotate: [-10, -5, -10] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
             >
                 <StrawberrySVG className="w-full h-full drop-shadow-lg opacity-90" />
             </motion.div>

@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useStore } from '../../store/appState';
 import { motion } from 'framer-motion';
+import { playSound } from '../Shared/AudioController';
 
 export default function Aftermath() {
     const setPhase = useStore((state) => state.setPhase);
     const [copied, setCopied] = useState(false);
+
+    useEffect(() => {
+        playSound('tuco_get_out');
+        const timeout = setTimeout(() => {
+            playSound('chicken_scream');
+        }, 800);
+        return () => clearTimeout(timeout);
+    }, []);
 
     const handleShare = async () => {
         const shareData = {

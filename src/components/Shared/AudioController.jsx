@@ -7,15 +7,22 @@ import { useStore } from '../../store/appState';
 // We will trigger them based on phases and actions.
 
 const sounds = {
-    piano_bgm: new Howl({ src: ['/assets/audio/piano_bgm.mp3'], loop: true, volume: 0.5 }),
-    paper_rustle: new Howl({ src: ['/assets/audio/paper_rustle.mp3'] }),
-    soft_page_turn: new Howl({ src: ['/assets/audio/soft_page_turn.mp3'] }),
-    night_ambience: new Howl({ src: ['/assets/audio/night_ambience.mp3'], loop: true, volume: 0.5 }),
-    sparkle_chime: new Howl({ src: ['/assets/audio/sparkle_chime.mp3'] }),
-    record_scratch: new Howl({ src: ['/assets/audio/record_scratch.mp3'], volume: 1.0 }),
-    vine_boom: new Howl({ src: ['/assets/audio/vine_boom.mp3'], volume: 1.0 }),
-    discord_ping: new Howl({ src: ['/assets/audio/discord_ping.mp3'], volume: 1.0 }),
-    error_fahhh: new Howl({ src: ['/assets/audio/error_fahhh.mp3'], volume: 1.0 }),
+    // Wholesome BGMs
+    piano_bgm: new Howl({ src: ['/assets/audio/romanceeeeeeeeeeeeee.mp3'], loop: true, volume: 0.5 }),
+    night_ambience: new Howl({ src: ['/assets/audio/romanceeeeeeeeeeeeee.mp3'], loop: true, volume: 0.5 }),
+
+    // Interactions
+    paper_rustle: new Howl({ src: ['/assets/audio/what-a-good-boy.mp3'] }),
+    soft_page_turn: new Howl({ src: ['/assets/audio/rizz-sound-effect.mp3'] }),
+    sparkle_chime: new Howl({ src: ['/assets/audio/rizz-sound-effect.mp3'] }),
+
+    // Switch & Meme Drop
+    record_scratch: new Howl({ src: ['/assets/audio/ack.mp3'], volume: 1.0 }),
+    vine_boom: new Howl({ src: ['/assets/audio/vine-boom.mp3'], volume: 1.0 }),
+    discord_ping: new Howl({ src: ['/assets/audio/metal-pipe-clang.mp3'], volume: 1.0 }), // Using metal pipe for the impact
+    error_fahhh: new Howl({ src: ['/assets/audio/fahhhhhhhhhhhhhh.mp3'], volume: 1.0 }),
+    chicken_scream: new Howl({ src: ['/assets/audio/chicken-on-tree-screaming.mp3'], volume: 1.0 }),
+    tuco_get_out: new Howl({ src: ['/assets/audio/tuco-get-out.mp3'], volume: 1.0 }),
 };
 
 export const playSound = (soundName) => {
