@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useStore } from './store/appState';
 import AudioController from './components/Shared/AudioController';
 import FloatingHearts from './components/Shared/FloatingHearts';
+import RomanticBorder from './components/Shared/RomanticBorder';
 import Envelope from './components/Wholesome/Envelope';
 import Letter from './components/Wholesome/Letter';
 import StarJar from './components/Wholesome/StarJar';
@@ -24,6 +25,8 @@ function App() {
   return (
     <div className={`w-full h-full relative transition-colors duration-2000 ease-in-out ${getPhaseClass()}`}>
       <AudioController />
+
+      <RomanticBorder />
 
       {/* Global Floating Hearts in background for wholesome phases */}
       <AnimatePresence>
