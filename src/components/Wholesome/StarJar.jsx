@@ -85,8 +85,8 @@ export default function StarJar() {
                         exit={{ opacity: 0, y: -100, transition: { duration: 1 } }}
                         className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-4/5 max-w-sm"
                     >
-                        <div className="backdrop-blur-md bg-white/10 border border-white/20 p-6 rounded-2xl shadow-2xl text-center">
-                            <p className="text-2xl text-[var(--color-text-warm-white)] font-bold">
+                        <div className="backdrop-blur-md bg-white/10 border border-white/20 p-8 rounded-2xl shadow-2xl text-center">
+                            <p className="text-4xl text-[#FFF5EE] tracking-wide cursive-text drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
                                 {activeMessage}
                             </p>
                         </div>

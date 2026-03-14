@@ -38,7 +38,7 @@ export default function Letter() {
                                 initial={{ opacity: 0, height: 0, overflow: 'hidden' }}
                                 animate={{ opacity: 1, height: 'auto', overflow: 'visible' }}
                                 transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-                                className="text-2xl text-center border-b border-gray-100 pb-4 last:border-0"
+                                className="text-3xl text-center border-b border-gray-100 pb-6 mb-2 last:border-0 cursive-text text-gray-700 tracking-wide"
                             >
                                 {fold.text}
                             </motion.div>
@@ -50,7 +50,7 @@ export default function Letter() {
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 0.5 }}
-                        className="text-center text-sm text-gray-400 mt-8 animate-pulse"
+                        className="text-center text-sm text-gray-400 mt-8 animate-pulse font-sans"
                     >
                         Tap to unfold...
                     </motion.div>
@@ -63,7 +63,7 @@ export default function Letter() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         onClick={handleContinue}
-                        className="mt-8 px-8 py-3 bg-[var(--color-bg-lavender)] text-gray-800 rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+                        className="mt-8 px-8 py-3 bg-[#E6E6FA] text-gray-800 rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all font-sans"
                     >
                         Continue
                     </motion.button>
