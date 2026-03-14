@@ -33,41 +33,15 @@ export default function Envelope() {
             <motion.img
                 src="/assets/images/strawberry.png"
                 alt="cute strawberry"
-                className="absolute top-[25%] right-[15%] w-20 h-20 object-contain mix-blend-multiply opacity-90 rotate-[15deg]"
+                className="absolute top-[25%] right-[15%] w-20 h-20 object-contain mix-blend-multiply opacity-90 rotate-[15deg] pointer-events-none"
                 animate={{ y: [0, -12, 0], rotate: [15, 20, 15] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
             />
 
-            {/* Floating Hearts Background */}
-            {[...Array(6)].map((_, i) => (
-                <motion.img
-                    key={i}
-                    src="/assets/images/floating_heart.png"
-                    alt="floating heart"
-                    className="absolute w-12 h-12 object-contain mix-blend-multiply opacity-50 z-0"
-                    initial={{
-                        x: Math.random() * window.innerWidth - window.innerWidth / 2,
-                        y: window.innerHeight / 2 + 100
-                    }}
-                    animate={{
-                        y: [-100, -window.innerHeight],
-                        x: (Math.random() - 0.5) * 200 + (Math.random() * window.innerWidth - window.innerWidth / 2),
-                        rotate: [0, 360],
-                        opacity: [0, 0.6, 0]
-                    }}
-                    transition={{
-                        duration: 8 + Math.random() * 4,
-                        repeat: Infinity,
-                        delay: Math.random() * 5,
-                        ease: "linear"
-                    }}
-                />
-            ))}
-
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-center mb-12 z-10 px-4"
+                className="text-center mb-16 z-10 px-4 mt-8"
             >
                 <p className="text-3xl md:text-5xl text-[#D9534F] drop-shadow-sm font-bold tracking-tight">
                     Someone who cares about you left a message.
@@ -79,12 +53,21 @@ export default function Envelope() {
 
             <motion.button
                 onClick={handleOpen}
-                className="relative group cursor-pointer z-10"
+                className="relative group cursor-pointer z-10 flex flex-col items-center"
                 animate={{ y: [0, -10, 0] }}
                 transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
             >
+                {/* Bouncing Text Indicator */}
+                <motion.div
+                    animate={{ y: [0, 8, 0] }}
+                    transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
+                    className="absolute -top-12 text-[#D9534F] font-bold tracking-widest text-sm uppercase opacity-80"
+                >
+                    CLICK ME ↓
+                </motion.div>
+
                 {/* Simple CSS Envelope Graphic for now, but made cuter */}
                 <div className="w-[320px] h-[220px] bg-[#fffbfa] rounded-2xl shadow-2xl overflow-hidden relative border-t-[100px] border-t-pink-100 border-x-[160px] border-x-pink-200 border-b-[100px] border-b-pink-300 transition-all group-hover:shadow-[0_20px_50px_rgba(255,192,203,0.5)]">
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-full z-10 group-hover:scale-110 transition-transform">

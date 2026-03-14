@@ -61,11 +61,12 @@ export default function StarJar() {
     return (
         <div className="flex flex-col items-center h-full w-full justify-end pb-20 relative overflow-hidden bg-gradient-to-t from-[#0f172a] to-[#1e1b4b]">
 
-            {/* Background Twinkling Stars */}
+            {/* Background Twinkling Stars & Fireflies */}
             <div className="absolute inset-0 z-0 opacity-60">
+                {/* Standard Stars */}
                 {[...Array(40)].map((_, i) => (
                     <motion.div
-                        key={i}
+                        key={`star-${i}`}
                         className="absolute rounded-full bg-white"
                         style={{
                             width: Math.random() * 3 + 1 + 'px',
@@ -75,6 +76,21 @@ export default function StarJar() {
                         }}
                         animate={{ opacity: [0.2, 1, 0.2], scale: [1, 1.5, 1] }}
                         transition={{ duration: Math.random() * 3 + 2, repeat: Infinity, delay: Math.random() * 5 }}
+                    />
+                ))}
+
+                {/* Fireflies / Magic Dust */}
+                {[...Array(15)].map((_, i) => (
+                    <div
+                        key={`firefly-${i}`}
+                        className="absolute rounded-full bg-yellow-300 blur-[1px]"
+                        style={{
+                            width: Math.random() * 4 + 2 + 'px',
+                            height: Math.random() * 4 + 2 + 'px',
+                            top: Math.random() * 100 + '%',
+                            left: Math.random() * 100 + '%',
+                            animation: `firefly ${Math.random() * 5 + 4}s infinite ease-in-out ${Math.random() * 5}s`
+                        }}
                     />
                 ))}
             </div>
