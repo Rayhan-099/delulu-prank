@@ -27,13 +27,13 @@ export default function Letter() {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center h-full w-full px-4 overflow-y-auto pt-20 pb-20 bg-[var(--color-bg-pastel-pink)] relative">
+        <div className="flex flex-col items-center justify-center h-full w-full px-4 overflow-y-auto pt-20 pb-20 relative">
 
             {/* Background Hearts for continuity */}
             <img src="/assets/images/floating_heart.png" className="absolute top-20 right-10 w-16 opacity-30 mix-blend-multiply rotate-12" />
             <img src="/assets/images/floating_heart.png" className="absolute bottom-40 left-10 w-24 opacity-20 mix-blend-multiply -rotate-12" />
 
-            <div className="w-full max-w-md bg-[#fffdf9] text-gray-800 shadow-[0_20px_50px_rgba(0,0,0,0.1)] rounded-xl pt-16 pb-12 px-10 space-y-6 relative border border-[#f0e6d2]" onClick={handleNextFold}>
+            <div className="w-full max-w-md bg-white/40 backdrop-blur-xl text-gray-800 shadow-[0_8px_32px_0_rgba(255,192,203,0.37)] rounded-xl pt-16 pb-12 px-10 space-y-6 relative border border-white/50" onClick={handleNextFold}>
 
                 {/* Cute Wax Seal Pin at the top */}
                 <div className="absolute -top-10 left-1/2 -translate-x-1/2">

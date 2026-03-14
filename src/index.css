@@ -39,9 +39,14 @@ body,
   height: 100dvh;
   width: 100%;
   overflow: hidden;
-  background-color: var(--bg-pastel-pink);
   font-family: 'Quicksand', 'Nunito', sans-serif;
   transition: background-color 2s ease-in-out;
+}
+
+.bg-wholesome-animated {
+  background: linear-gradient(-45deg, #FFD1DC, #fff0f5, #ffe4e1, #FFD1DC);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
 }
 
 .cursive-text {
@@ -49,6 +54,20 @@ body,
 }
 
 /* Base Animations defined in the Design Doc */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 @keyframes float {
   0% {
     transform: translateY(0px);
@@ -110,4 +129,67 @@ body,
   100% {
     transform: scale(1);
   }
+}
+
+/* CRT Scanline Effect */
+.bg-crt {
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 4px, 6px 100%;
+  pointer-events: none;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip-path: inset(80% 0 0 0);
+    transform: translate(-2px, 2px);
+  }
+
+  20% {
+    clip-path: inset(20% 0 80% 0);
+    transform: translate(2px, -2px);
+  }
+
+  40% {
+    clip-path: inset(50% 0 30% 0);
+    transform: translate(2px, 2px);
+  }
+
+  60% {
+    clip-path: inset(10% 0 70% 0);
+    transform: translate(-2px, -2px);
+  }
+
+  80% {
+    clip-path: inset(40% 0 50% 0);
+    transform: translate(2px, 2px);
+  }
+
+  100% {
+    clip-path: inset(80% 0 0 0);
+    transform: translate(-2px, -2px);
+  }
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text::before {
+  left: 2px;
+  text-shadow: -2px 0 red;
+  background: transparent;
+  animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+  left: -2px;
+  text-shadow: -2px 0 blue;
+  background: transparent;
+  animation: glitch-anim 3s infinite linear alternate-reverse;
 }

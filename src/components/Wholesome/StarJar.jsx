@@ -113,11 +113,12 @@ export default function StarJar() {
             </AnimatePresence>
 
             {/* Container for Stars and Jar */}
-            <div className="relative w-64 h-64 flex justify-center items-end mt-40">
+            <div className="relative w-72 h-72 flex justify-center items-end mt-40">
 
                 {/* The Glass Jar Visual */}
-                <div className="absolute bottom-0 w-48 h-56 bg-white/5 border-2 border-white/20 rounded-b-3xl rounded-t-lg backdrop-blur-[2px] shadow-[inset_0_0_20px_rgba(255,255,255,0.1)] flex justify-center z-10">
-                    <div className="absolute -top-4 w-32 h-6 border-2 border-white/30 bg-white/10 rounded-full"></div>
+                <div className="absolute bottom-0 w-56 h-64 bg-white/5 border border-white/30 rounded-b-[40px] rounded-t-xl backdrop-blur-md shadow-[inset_0_0_30px_rgba(255,255,255,0.2),0_10px_40px_rgba(0,0,0,0.5)] flex justify-center z-10">
+                    <div className="absolute -top-5 w-36 h-8 border-2 border-white/40 bg-white/10 rounded-full shadow-[0_0_15px_rgba(255,255,255,0.2)]"></div>
+                    <div className="absolute top-1 w-32 h-2 bg-white/20 rounded-full blur-[2px]"></div>
 
                     {/* Render individual stars inside mapped out bounds */}
                     {stars.map((star) => (
@@ -129,16 +130,16 @@ export default function StarJar() {
                                         opacity: 1,
                                         scale: 1,
                                         x: star.xOffset,
-                                        y: star.yOffset - 20,
+                                        y: star.yOffset - 30,
                                     }}
-                                    exit={{ opacity: 0, y: -300, scale: 2 }}
-                                    whileHover={{ scale: 1.2, filter: 'brightness(1.5)' }}
+                                    exit={{ opacity: 0, y: -400, scale: 2 }}
+                                    whileHover={{ scale: 1.2, filter: 'brightness(1.5) drop-shadow(0 0 10px #fef08a)' }}
                                     onClick={() => handleStarClick(star.id)}
-                                    className="absolute bottom-12 cursor-pointer p-4"
+                                    className="absolute bottom-16 cursor-pointer p-2 z-20"
                                 >
                                     <Star
-                                        className="text-yellow-200 fill-yellow-200/40 drop-shadow-[0_0_10px_rgba(255,255,0,0.8)]"
-                                        size={28}
+                                        className="text-yellow-200 fill-yellow-200/60 drop-shadow-[0_0_15px_rgba(255,255,0,0.8)] animate-pulse"
+                                        size={36}
                                     />
                                 </motion.div>
                             )}
@@ -146,7 +147,6 @@ export default function StarJar() {
                     ))}
                 </div>
             </div>
-
             <AnimatePresence>
                 {allClicked && (
                     <motion.button

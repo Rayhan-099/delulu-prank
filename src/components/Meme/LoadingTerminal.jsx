@@ -41,21 +41,27 @@ export default function LoadingTerminal() {
     }, [setPhase]);
 
     return (
-        <div className="w-full h-full bg-[#0D0D0D] flex flex-col items-center justify-center font-mono p-8 text-green-400">
+        <div className="w-full h-full bg-[#050505] flex flex-col items-center justify-center font-mono p-8 text-green-500 relative overflow-hidden">
 
-            <div className="w-full max-w-md">
-                <div className="mb-4 text-left text-lg">
+            {/* Authentic CRT Scanline Overlay */}
+            <div className="absolute inset-0 bg-crt z-10 pointer-events-none opacity-50"></div>
+
+            {/* Screen Vignette */}
+            <div className="absolute inset-0 z-20 pointer-events-none shadow-[inset_0_0_100px_rgba(0,0,0,0.9)]"></div>
+
+            <div className="w-full max-w-md z-30 relative drop-shadow-[0_0_10px_rgba(0,255,0,0.8)]">
+                <div className="mb-6 text-left text-xl font-bold tracking-widest text-shadow-[0_0_5px_#0f0]">
                     {'>'} {texts[textIndex]}
-                    <span className="animate-pulse">_</span>
+                    <span className="animate-pulse shadow-green-500/50">_</span>
                 </div>
 
-                <div className="w-full h-6 border-2 border-green-500 p-1 rounded-sm">
+                <div className="w-full h-8 border-4 border-green-500 p-1 rounded-sm shadow-[0_0_15px_rgba(0,255,0,0.4)]">
                     <div
-                        className="h-full bg-green-500 transition-all duration-100 ease-linear"
+                        className="h-full bg-green-500 transition-all duration-100 ease-linear shadow-[0_0_20px_#0f0]"
                         style={{ width: `${progress}%` }}
                     />
                 </div>
-                <div className="mt-2 text-right">
+                <div className="mt-4 text-right font-bold text-shadow-[0_0_5px_#0f0]">
                     {progress}% Complete
                 </div>
             </div>

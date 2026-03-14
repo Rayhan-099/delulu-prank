@@ -12,17 +12,14 @@ import Aftermath from './components/Meme/Aftermath';
 function App() {
   const phase = useStore((state) => state.phase);
 
-  const getBackgroundColor = () => {
-    if (phase === 'ragebait' || phase === 'aftermath') return 'var(--color-bg-void-black)';
-    if (phase === 'jar_of_stars' || phase === 'loading') return '#1A1A2E'; // Calming dark night sky
-    return 'var(--color-bg-pastel-pink)';
+  const getPhaseClass = () => {
+    if (phase === 'ragebait' || phase === 'aftermath') return 'bg-[var(--color-bg-void-black)]';
+    if (phase === 'jar_of_stars' || phase === 'loading') return 'bg-gradient-to-t from-[#0f172a] to-[#1e1b4b]';
+    return 'bg-wholesome-animated';
   };
 
   return (
-    <div className="w-full h-full relative" style={{
-      backgroundColor: getBackgroundColor(),
-      transition: 'background-color 2s ease-in-out'
-    }}>
+    <div className={`w-full h-full relative transition-colors duration-2000 ease-in-out ${getPhaseClass()}`}>
       <AudioController />
 
       <AnimatePresence mode="wait">
