@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { HeartSVG } from './Icons';
 
 export default function FloatingHearts({ count = 15 }) {
     // Generate a random array of hearts
@@ -15,11 +16,9 @@ export default function FloatingHearts({ count = 15 }) {
     return (
         <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
             {hearts.map((heart) => (
-                <motion.img
+                <motion.div
                     key={heart.id}
-                    src="/assets/images/floating_heart.png"
-                    alt="floating heart"
-                    className="absolute object-contain mix-blend-multiply opacity-40"
+                    className="absolute text-pink-300 drop-shadow-md"
                     style={{
                         width: `${heart.size}px`,
                         height: `${heart.size}px`,
@@ -41,7 +40,9 @@ export default function FloatingHearts({ count = 15 }) {
                         delay: heart.delay,
                         ease: "linear",
                     }}
-                />
+                >
+                    <HeartSVG className="w-full h-full" />
+                </motion.div>
             ))}
         </div>
     );

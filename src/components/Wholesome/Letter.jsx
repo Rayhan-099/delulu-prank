@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useStore } from '../../store/appState';
 import { playSound } from '../Shared/AudioController';
+import { WaxSealSVG } from '../Shared/Icons';
 
 const folds = [
     { id: 1, text: "You have a way of making people smile." },
@@ -32,8 +33,8 @@ export default function Letter() {
             <div className="w-full max-w-md bg-white/40 backdrop-blur-xl text-gray-800 shadow-[0_8px_32px_0_rgba(255,192,203,0.37)] rounded-xl pt-16 pb-12 px-10 space-y-6 relative border border-white/50" onClick={handleNextFold}>
 
                 {/* Cute Wax Seal Pin at the top */}
-                <div className="absolute -top-10 left-1/2 -translate-x-1/2">
-                    <img src="/assets/images/wax_seal.png" alt="seal" className="w-20 h-20 mix-blend-multiply drop-shadow-md" />
+                <div className="absolute -top-12 left-1/2 -translate-x-1/2">
+                    <WaxSealSVG className="w-24 h-24 drop-shadow-md" />
                 </div>
 
                 {folds.map((fold, index) => (
