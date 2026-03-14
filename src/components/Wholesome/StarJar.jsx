@@ -59,14 +59,32 @@ export default function StarJar() {
     };
 
     return (
-        <div className="flex flex-col items-center h-full w-full justify-end pb-20 relative overflow-hidden">
+        <div className="flex flex-col items-center h-full w-full justify-end pb-20 relative overflow-hidden bg-gradient-to-t from-[#0f172a] to-[#1e1b4b]">
+
+            {/* Background Twinkling Stars */}
+            <div className="absolute inset-0 z-0 opacity-60">
+                {[...Array(40)].map((_, i) => (
+                    <motion.div
+                        key={i}
+                        className="absolute rounded-full bg-white"
+                        style={{
+                            width: Math.random() * 3 + 1 + 'px',
+                            height: Math.random() * 3 + 1 + 'px',
+                            top: Math.random() * 100 + '%',
+                            left: Math.random() * 100 + '%'
+                        }}
+                        animate={{ opacity: [0.2, 1, 0.2], scale: [1, 1.5, 1] }}
+                        transition={{ duration: Math.random() * 3 + 2, repeat: Infinity, delay: Math.random() * 5 }}
+                    />
+                ))}
+            </div>
 
             {/* Title / Instruction */}
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1, duration: 2 }}
-                className="absolute top-20 text-center w-full px-4"
+                className="absolute top-20 text-center w-full px-4 z-10"
             >
                 <p className="text-xl text-[var(--color-bg-lavender)] drop-shadow-md">
                     Each star contains something someone wanted to tell you.

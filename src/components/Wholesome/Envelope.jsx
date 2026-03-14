@@ -38,15 +38,41 @@ export default function Envelope() {
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
             />
 
+            {/* Floating Hearts Background */}
+            {[...Array(6)].map((_, i) => (
+                <motion.img
+                    key={i}
+                    src="/assets/images/floating_heart.png"
+                    alt="floating heart"
+                    className="absolute w-12 h-12 object-contain mix-blend-multiply opacity-50 z-0"
+                    initial={{
+                        x: Math.random() * window.innerWidth - window.innerWidth / 2,
+                        y: window.innerHeight / 2 + 100
+                    }}
+                    animate={{
+                        y: [-100, -window.innerHeight],
+                        x: (Math.random() - 0.5) * 200 + (Math.random() * window.innerWidth - window.innerWidth / 2),
+                        rotate: [0, 360],
+                        opacity: [0, 0.6, 0]
+                    }}
+                    transition={{
+                        duration: 8 + Math.random() * 4,
+                        repeat: Infinity,
+                        delay: Math.random() * 5,
+                        ease: "linear"
+                    }}
+                />
+            ))}
+
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="text-center mb-12 z-10 px-4"
             >
-                <p className="text-3xl md:text-4xl text-[#D9534F] drop-shadow-sm font-bold tracking-tight">
+                <p className="text-3xl md:text-5xl text-[#D9534F] drop-shadow-sm font-bold tracking-tight">
                     Someone who cares about you left a message.
                 </p>
-                <p className="text-xl md:text-2xl text-[#D9534F]/80 mt-3 font-medium">
+                <p className="text-xl md:text-2xl text-[#D9534F]/90 mt-4 font-medium">
                     Open the envelope to read it.
                 </p>
             </motion.div>
@@ -55,16 +81,14 @@ export default function Envelope() {
                 onClick={handleOpen}
                 className="relative group cursor-pointer z-10"
                 animate={{ y: [0, -10, 0] }}
-                transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
+                transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
             >
                 {/* Simple CSS Envelope Graphic for now, but made cuter */}
-                <div className="w-72 h-48 bg-[#fffbfa] rounded-xl shadow-xl overflow-hidden relative border-t-[80px] border-t-pink-100 border-x-[144px] border-x-pink-200 border-b-[80px] border-b-pink-300 transition-all group-hover:shadow-2xl">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[120%] z-10 group-hover:scale-110 transition-transform">
-                        <div className="w-14 h-14 bg-[#ff6b81] rounded-full shadow-md flex items-center justify-center border-4 border-[#fffbfa]">
-                            <span className="text-white text-xl">❤</span>
-                        </div>
+                <div className="w-[320px] h-[220px] bg-[#fffbfa] rounded-2xl shadow-2xl overflow-hidden relative border-t-[100px] border-t-pink-100 border-x-[160px] border-x-pink-200 border-b-[100px] border-b-pink-300 transition-all group-hover:shadow-[0_20px_50px_rgba(255,192,203,0.5)]">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-full z-10 group-hover:scale-110 transition-transform">
+                        <img src="/assets/images/wax_seal.png" alt="wax seal" className="w-20 h-20 mix-blend-multiply opacity-90" />
                     </div>
                 </div>
             </motion.button>
