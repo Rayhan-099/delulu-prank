@@ -49,11 +49,11 @@ You need `Node.js` installed on your local machine.
 
 1. **Clone the repo:**
    ```sh
-   git clone https://github.com/your-username/a-message-for-you.git
+   git clone https://github.com/Rayhan-099/delulu-prank.git
    ```
 2. **Navigate to the project directory:**
    ```sh
-   cd cute
+   cd delulu-prank
    ```
 3. **Install NPM packages:**
    ```sh
@@ -90,7 +90,7 @@ You need `Node.js` installed on your local machine.
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/your-username/a-message-for-you/issues) if you want to contribute.
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/Rayhan-099/delulu-prank/issues) if you want to contribute.
 
 ## ⭐️ Show your support
 
