@@ -88,10 +88,6 @@ You need `Node.js` installed on your local machine.
 2. **💀 Meme Phase:** 
    - Instantly overrides to a void black background, utilizing harsh `linear` or `steps()` keyframes, aggressive screen shakes, and oversized `Impact` / `Arial Black` fonts to physically jolt the user.
 
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/Rayhan-099/delulu-prank/issues) if you want to contribute.
-
 ## ⭐️ Show your support
 
 Give a ⭐️ if this project helped you trick your friends!
