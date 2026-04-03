@@ -1,5 +1,6 @@
 import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { Analytics } from '@vercel/analytics/react';
 import { useStore } from './store/appState';
 import AudioController from './components/Shared/AudioController';
 import FloatingHearts from './components/Shared/FloatingHearts';
@@ -74,6 +75,7 @@ function App() {
           </motion.div>
         )}
       </AnimatePresence>
+      <Analytics />
     </div>
   );
 }
